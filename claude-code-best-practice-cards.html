@@ -76,7 +76,9 @@
 
   /* ====== RESPONSIVE ====== */
   html { background:#1a1a2e; overflow-x:hidden; }
-  @media (max-width: 1120px) {
+
+  /* Tablet: fluid-scale the original 1080×1350 carousel design */
+  @media (max-width: 1120px) and (min-width: 601px) {
     body { padding:12px 0; gap:16px; align-items:center; overflow-x:hidden; }
     .card {
       --scale: min(1, calc((100vw - 16px) / 1080px));
@@ -84,6 +86,61 @@
       transform-origin: top center;
       margin-bottom: calc((var(--scale) - 1) * 1350px);
     }
+  }
+
+  /* Mobile: redesigned fluid layout with native text sizes */
+  @media (max-width: 600px) {
+    body { padding:12px; gap:16px; align-items:stretch; overflow-x:hidden; }
+    .card {
+      width:100%; height:auto; min-height:0;
+      transform:none; margin-bottom:0;
+      border-radius:18px;
+    }
+
+    /* Cover */
+    .cover-content { padding:56px 24px; }
+    .cover-icon { margin-bottom:20px; }
+    .cover-icon svg { width:48px; height:48px; }
+    .cover-title { font-size:38px; margin-bottom:12px; }
+    .cover-subtitle { font-size:24px; margin-bottom:24px; }
+    .cover-desc { font-size:15px; line-height:1.6; }
+
+    /* Content cards */
+    .card-inner { padding:28px 22px; }
+    .card-number { font-size:11px; letter-spacing:3px; margin-bottom:14px; }
+    .card-header { gap:10px; margin-bottom:14px; }
+    .card-keyword { font-size:30px; }
+    .card-tag { font-size:13px; padding:5px 12px; border-radius:20px; }
+    .card-explain { font-size:16px; line-height:1.6; margin-bottom:18px; }
+    .card-explain br { display:none; }
+    .tips-container { gap:8px; }
+    .tip-item { padding:12px 14px; gap:10px; border-radius:10px; border-left-width:2px; }
+    .tip-icon { width:22px; height:22px; margin-top:2px; }
+    .tip-icon svg { width:18px; height:18px; }
+    .tip-text { font-size:15px; line-height:1.55; }
+    .tip-text code { font-size:14px; padding:1px 5px; }
+    .card-source { padding-top:14px; }
+    .source-label { font-size:11px; }
+    .card-arrow { width:32px; height:32px; }
+    .card-arrow svg { width:14px; height:14px; }
+
+    /* Dense */
+    .card-dense .card-inner { padding:24px 20px; }
+    .card-dense .card-keyword { font-size:28px; }
+    .card-dense .card-explain { font-size:15px; margin-bottom:16px; }
+    .card-dense .tip-item { padding:10px 12px; }
+    .card-dense .tip-text { font-size:14px; }
+    .card-dense .tip-text code { font-size:13px; }
+
+    /* CTA */
+    .cta-content { padding:48px 24px; }
+    .cta-icon { margin-bottom:24px; }
+    .cta-icon svg { width:56px; height:56px; }
+    .cta-title { font-size:26px; margin-bottom:14px; }
+    .cta-highlight { font-size:18px; }
+
+    /* Author label */
+    .card-author { bottom:14px; left:22px; font-size:11px; letter-spacing:1.5px; }
   }
 </style>
 </head>
